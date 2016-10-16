@@ -1,6 +1,11 @@
 package com.jersey.config;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import com.walmart.hackathon.resources.BucketListResource;
+import com.walmart.hackathon.resources.GroupResource;
+import com.walmart.hackathon.resources.ItemResource;
+import com.walmart.hackathon.resources.UserResource;
+
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
 
@@ -13,6 +18,10 @@ public class JerseyInitialization extends ResourceConfig {
         this.property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
         this.property(ServerProperties.BV_DISABLE_VALIDATE_ON_EXECUTABLE_OVERRIDE_CHECK, true);
         //this.packages(true, "com.jersey.resources");
-        this.packages(true, "com.walmart.hackathon.resources");
+        //this.packages(true, "com.walmart.hackathon.resources");
+        this.register(UserResource.class);
+        this.register(GroupResource.class);
+        this.register(ItemResource.class);
+        this.register(BucketListResource.class);
     }
 }
